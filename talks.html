@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>The Third Workshop on the LLVM Compiler Infrastructure in HPC</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>The Fourth Workshop on the LLVM Compiler Infrastructure in HPC</h1>
+        <p>Workshop held in conjunction with SC17 - Monday, November 13, 2017 - Denver, Colorado, USA</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/LLVM-HPC4-Workshop" class="button fork"><strong>View On GitHub</strong></a>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h2>
+<a id="invited" class="anchor" href="#invited" aria-hidden="true"><span class="octicon octicon-link"></span></a>Invited Talks</h2>
+
+<a class="anchor" name="adve" aria-hidden="true"></a>
+<h3>Keynote</h3>
+<h4>Vikram Adve</h4>
+
+        <h2>
+<a id="contributed" class="anchor" href="#contributed" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributed Papers</h2>
+
+<a class="anchor" name="osmialowski" aria-hidden="true"></a>
+<h3>How The Flang FrontendWorks - Introduction to the interior of the Open-Source Fortran frontend for LLVM</h3>
+<h4>Paul Osmialowski</h4>
+
+<p>In May 2017, PGI publicized Flang, an Open–Source Fortran frontend for LLVM along with a complementary runtime library.  The ultimate goal set for Flang is to make it part of the whole LLVM ecosystem with level of support and attention equal to that experienced by the Clang frontend. To come closer to this goal it is important to make Flang widely known and more visible. A good introduction to the frontend interior could serve such a purpose and the intention of this paper is to describe how Flang works and how its source code is structured.</p>
+
+<a class="anchor" name="mishra" aria-hidden="true"></a>
+<h3>Benchmarking and Evaluating Unified Memory for OpenMP GPU Offloading</h3>
+<h4>Alok Mishra, Lingda Li, Martin Kong, Hal Finkel, and Barbara Chapman</h4>
+
+<p>The latest OpenMP standard offers automatic device offloading capabilities which facilitate GPU programming. Despite this, there remain many challenges. One of these is the unified memory feature introduced in recent GPUs. GPUs in current and future HPC systems have enhanced support for unified memory space. In such systems, CPU and GPU can access each other’s memory transparently, that is, the data movement is managed automatically by the underlying system software and hardware. Memory oversubscription is also possible in these systems. However, there is a significant lack of knowledge about how this mechanism will perform, and how programmers should use it. In this paper, we aim to study and improve the performance of unified memory for automatic GPU offloading via the OpenMP API and runtime, and leveraging the Rodinia benchmark suite. We also modify the LLVM compiler to allow OpenMP to use unified memory. Then we conduct our evaluation on these benchmarks. The results reveal that while the performance of unified memory is comparable with that of normal GPU offloading for benchmarks with little data reuse, it suffers from significant overhead when GPU memory is oversubcribed for benchmarks with large amount of data reuse. Based on these results, we provide several guidelines for programmers to achieve better performance with unified memory.</p>
+
+<a class="anchor" name="haidl" aria-hidden="true"></a>
+<h3>PACXXv2 + RV -- An LLVM-based Portable High-Performance Programming Model</h3>
+<h4>Michael Haidl, Simon Moll, Lars Klein, Huihui Sun, Sebastian Hack, and Sergei Gorlatch</h4>
+
+<p>To achieve high performance on today's high-performance computing (HPC) systems multiple programming models have to be used.  An example for this burden to the developer is OpenCL: the OpenCL's SPMD programming model must be used together with a host programming model, commonly C or C++.  Different programming models require different compilers for code generation, which introduce challenges for the software developer, e.g, different compilers must be convinced to agree on basic properties like type layouts to avoid subtle bugs. Moreover, the resulting performance highly depends on the features of the used compilers and may vary unpredictably.</p> 
+
+<p>We present PACXXv2 -- an LLVM based, single-source, single-compiler programming model which integrates explicitly parallel SPMD programming into C++.  Our novel CPU back-end provides portable and predictable performance on various state-of-the-art CPU architectures comprising Intel x86 architectures, IBM Power8 and ARM Cortex CPUs.  We efficiently integrate the Region Vectorizer (RV) into our back-end and exploit its whole function vectorization capabilities for our kernels.  PACXXv2 utilizes C++ generalized attributes to transparently propagate information about memory allocations to the PACXX back-ends to enable additional optimizations.</p> 
+
+<p>We demonstrate the high-performance capabilities of PACXXv2 together with RV on benchmarks from well-known benchmark suites and compare the performance of the generated code to Intel's OpenCL driver and POCL -- the portable OpenCL project based on LLVM.</p>
+
+<a class="anchor" name="stelle" aria-hidden="true"></a>
+<h3>OpenMPIR</h3>
+<h4>George Stelle, Stephen Olivier, William Moses, and Patrick Mccormick</h4>
+
+<p>Optimizing compilers for task-level parallelism are still in their infancy.  This work explores a compiler front end that translates OpenMP tasking semantics to Tapir, an extension to LLVM IR that represents fork-join parallelism. This enables analyses and optimizations that were previously inaccessible to OpenMP codes, as well as the ability to target additional runtimes at code generation. Using a Cilk runtime back end, we compare results to existing OpenMP implementations.  Initial performance results for the Barcelona OpenMP task suite show performance improvements over existing implementations.</p>
+
+<a class="anchor" name="tschueter" aria-hidden="true"></a>
+<h3>An LLVM Instrumentation Plug-in for Score-P</h3>
+<h4>Ronny Tschueter, Johannes Ziegenbalg, Bert Wesarg, Matthias Weber, Christian Herold, Sebastian Doebel, and Ronny Brendel</h4>
+
+<p>Reducing application runtime, scaling parallel applications to higher numbers of processes/threads, and porting applications to new hardware architectures are tasks necessary in the software development process. Therefore, developers have to investigate and understand application runtime behavior. Tools such as monitoring infrastructures that capture performance relevant data during application execution assist in this task. The measured data forms the basis for identifying bottlenecks and optimizing the code. Monitoring infrastructures need mechanisms to record application activities in order to conduct measurements. Automatic instrumentation of the source code is the preferred method in most application scenarios. We introduce a plug-in for the LLVM infrastructure that enables automatic source code instrumentation at compile-time. In contrast to available instrumentation mechanisms in LLVM/Clang, our plug-in can selectively include/exclude individual application functions. This enables developers to fine-tune the measurement to the required level of detail while avoiding large runtime overheads due to excessive instrumentation.</p>
+
+
+<a class="anchor" name="deb" aria-hidden="true"></a>
+<h3>QUARC: An Optimized DSL Framework using LLVM</h3>
+<h4>Diptorup Deb, Robert J. Fowler, and Allan Porterfield</h4>
+
+<p>We describe aspects of the implementation of QUARC, a framework layered on C++ used for a domain specific language for Lattice Quantum Chromodynamics. It is built on top of Clang/LLVM to leverage long term support and performance portability. QUARC implements a general array extension to C++ with implicit data parallelism. A notable innovation is the method for using templates to capture and encode the high-level abstractions and to communicate these abstractions transparently to LLVM through an unmodified Clang. Another notable feature is a general array transformation mechanism used to improve memory hierarchy performance and maximize opportunities for vectorization. This reshapes and transposes arrays of structures containing nested complex arrays into arrays of structures of arrays. We discuss an example for which QUARC generated code has performance competitive with the very best hand-optimized libraries.</p>
+
+<a class="anchor" name="bercea" aria-hidden="true"></a>
+<h3>Implementing implicit OpenMP data sharing on GPUs</h3>
+<h4>Gheorghe-Teodor Bercea, Carlo Bertolli, Arpith Jacob, Alexandre Eichenberger, Alexey Bataev, Georgios Rokos, Hyojin Sung, Tong Chen, and Kevin O'Brien</h4>
+
+<p>OpenMP is a shared memory programming model which supports the offloading of target regions to accelerators such as NVIDIA GPUs. The implementation in Clang/LLVM aims to deliver a generic GPU compilation toolchain that supports both the native CUDA C/C++ and the OpenMP device offloading models. There are situations where the semantics of OpenMP and those of CUDA diverge. One such example is the policy for implicitly handling local variables. In CUDA, local variables are implicitly mapped to thread local memory and thus become private to a CUDA thread. In OpenMP, due to semantics that allow the nesting of regions executed by different numbers of threads, variables need to be implicitly <i>shared</i> among the threads of a contention group.</p> 
+
+<p>In this paper we introduce a re-design of the OpenMP device data sharing infrastructure that is responsible for the implicit sharing of local variables in the Clang/LLVM toolchain. We introduce a new data sharing infrastructure that lowers implicitly shared variables to the shared memory of the GPU.</p>
+
+<p>We measure the amount of shared memory used by our scheme in cases that involve scalar variables and statically allocated arrays. The evaluation is carried out by offloading to K40 and P100 NVIDIA GPUs. For scalar variables the pressure on shared memory is relatively low, under 26% of shared memory utilization for the K40, and does not negatively impact occupancy. The limiting occupancy factor in that case is register pressure. The data sharing scheme offers the users a simple memory model for controlling the implicit allocation of device shared memory.</p>
+
+<a class="anchor" name="endo" aria-hidden="true"></a>
+<h3>Applying Temporal Blocking with a Directive-based Approach</h3>
+<h4>Shota Kuroda, Toshio Endo, and Satoshi Matsuoka</h4>
+
+<p>Stencil kernels are important, iterative computation patterns heavily used in scientific simulations and other operations such as image processing. The performance of stencil kernels is usually bound by memory bandwidth, and the common method of overcoming this is to apply Temporal Blocking (TB) as a form of bandwidth reducing algorithm. However, applying TB to existing code incurs high programming cost due to real-life codes embodying complex loop structures, and moreover, multitudes of parameters and blocking schemes involved in TB complicating the tuning process. We propose an automated, directive-based compiler approach for TB by extending the polyhedral compilation in the Polly/LLVM framework, significantly reducing programming cost as well as being easily subject to auto-tuning. Evaluation of the performance of our generated stencil codes on Core i7 and Xeon Phi show that the auto-generated stencil kernels achieve performance that is close to and often on par with hand TB-converted and optimized codes.</p>
+
+<a class="anchor" name="tian" aria-hidden="true"></a>
+<h3>LLVM Compiler Implementation for Explicit Parallelization and SIMD Vectorization</h3>
+<h4>Xinmin Tian, Hideki Saito, Ernesto Su, Jin Lin, Satish Guggilla, Diego Caballero, Matt Masten, Andrew Savonichev, Michael Rice, Elena Demikhovsky, Ayal Zaks, Gil Rapaport, Abhinav Gaba, Vasileios Porpodas, and Eric Garcia</h4>
+
+<p>With advances of modern multi-core processors and accelerators, many modern applications are increasingly turning to compiler-assisted parallel and vector programming models such as OpenMP, OpenCL, Halide, Python and Tensor-Flow. It is crucial to ensure that LLVM-based compilers can optimize parallel and vector code as effectively as possible. In this paper, we first present a set of updated LLVM IR extensions for explicitly parallel, vector, and offloading program constructs in the context of C/C++/OpenCL; Secondly, we describe our LLVM design and implementation for advanced features in OpenMP such as parallel loop scheduling, task and taskloop, SIMD loop and functions, and we discuss the impact of our updated implementation on existing LLVM optimization passes. Finally, we present a re-use case of our infrastructure to enable explicit parallelization and vectorization extensions in our OpenCL compiler to achieve ~35x performance speedup for a well-known autonomous driving workload on a multi-core platform configured with Intel Xeon Scalable Processors.</p>
+
+        <h2>
+<a id="lightning" class="anchor" href="#lightning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lightning Talks</h2>
+
+<a class="anchor" name="chandrasekaran" aria-hidden="true"></a>
+<h3>OpenMP 4.5 Validation and Verification Suite</h3>
+<h4>Sergio Pino, Swaroop Pophale, Jose Monsalve Diaz, Oscar Hernandez, David Bernholdt, Hal Finkel, and Sunita Chandrasekaran</h4>
+
+<p>As directive based programming APIs like OpenMP introduce directives for accelerator devices and people are starting to use them in production codes, it is critical to have a mechanism that checks for an implementation’s conformance to the standard to make sure they work correctly across architectures. This process at the same time uncovers possible ambiguities in the standard for implementors and users. We try to ll this gap through a validation and veri cation test-suite. This ongoing work focus rst on the o oad directives available in OpenMP 4.5. Our tests focus on functionality as well as use-cases from kernels extracted from applications. We have tested our tests with LLVM OpenMP compiler and runtime implementation amongst other compilers (GNU, IBM XL, Cray CCE) and we document some interesting test-cases that have uncovered implementation bugs in LLVM as well as ambiguities in the standard. In this paper we share our methodology and experiences toward a comprehensive validation and veri cation testsuite.</p>
+
+<a class="anchor" name="sharif" aria-hidden="true"></a>
+<h3>Developing an OpenMP runtime for UVM-capable GPUs</h3>
+<h4>Hashim Sharif, Lingda Li, Hal Finkel, and Vikram Adve</h4>
+
+<p>With the emergence of new hardware architectures, programming models such as OpenMP must consider new design choices. In the GPU programming space, Unified Virtual Memory (UVM) is one of the new technologies that warrant such considerations. In particular, the new UVM capabilities supported by the Nvidia Pascal architecture introduce new optimization opportunities. While on-demand paging offered by a UVM-based system simplifies kernel programming, it can hamper performance due to excessive page faults at runtime. Accordingly, we have developed an OpenMP runtime that optimizes the data communication and kernel execution for UVM-capable systems. The runtime evaluates the different design choices by leveraging cost models that determine the communication and computation cost, given the application and hardware characteristics. Specifically, we employ static and dynamic analysis to identify application data access patterns that feed into the performance cost models. Our preliminary results demonstrate that the developed optimizations can provide significantly improved performance for OpenMP applications.</p>
+
+<a class="anchor" name="grosser" aria-hidden="true"></a>
+<h3>Improved Loop Distribution in LLVM using Polyhedral Dependences</h3>
+<h4>Tharun Kumar Dangeti, Utpal Bora, Santanu Das, Tobias Grosser, and Ramakrishna Upadrasta</h4>
+
+<p>We propose a framework that can be used for improving loop-optimizations in LLVM using the Polyhedral framework of Polly.  In our framework, we use the precise polyhedral dependences from Polly (provided by PolyhedralInfo), to construct a dependence graph, and perform loop transformations. As the first transformation case study of such a framework, we implemented loop distribution targeting improvement of inner-loop vectorization. Our loop distribution pass shows promising results on the TSVC benchmark; it is able to distribute 11 loops, while the earlier distribution pass is unable to distribute at all. We also have preliminary performance numbers from SPEC 2006. We believe that our work is the first step towards scalable and pre-defined loop-transformations in LLVM using exact dependences from Polly.</p>
+
+<a class="anchor" name="joshi" aria-hidden="true"></a>
+<h3>Implementation of a Cache Miss Calculator in LLVM/Polly</h3>
+<h4>Keyur Joshi, Ramakrishna Upadrasta, and Albert Cohen</h4>
+
+<p>We propose an LLVM pass to mathematically measure cache misses for Static Control Parts (SCoPs) of programs. Our implementation builds on top of the Polly infrastructure and has support for features such as LRU associativity, unknown array base addresses, and (some) approximation. We describe our preliminary results and limitations by using this pass on a selection of SCoPs. Finally we list directions for expanding and improving this work.</p>
+
+      </section>
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
